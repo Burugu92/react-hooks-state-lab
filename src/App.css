@@ -1,42 +1,251 @@
+/* Light and Dark Mode - Applied to body */
+body.light-mode {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Root container */
 #root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Main app container */
+#root > div {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Button Styles */
+.light-mode button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.light-mode button:hover {
+  background-color: #555;
+}
+
+.dark-mode button {
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dark-mode button:hover {
+  background-color: #ffed4e;
+}
+
+/* Select Dropdown */
+.light-mode select {
+  background-color: #f0f0f0;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 10px 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dark-mode select {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 10px 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Labels */
+.light-mode label {
+  color: #000;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.dark-mode label {
+  color: #fff;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+/* Headings */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3 {
+  color: #000;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #fff;
+}
+
+.light-mode p {
+  color: #333;
+}
+
+.dark-mode p {
+  color: #ddd;
+}
+
+/* Product Cards */
+.product-card {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.light-mode .product-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #000;
+}
+
+.light-mode .product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.dark-mode .product-card {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.dark-mode .product-card:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.light-mode .product-card p {
+  color: #555;
+}
+
+.dark-mode .product-card p {
+  color: #ccc;
+}
+
+/* Cart */
+.cart {
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+.light-mode .cart {
+  background-color: #f5f5f5;
+  border: 2px solid #ddd;
+  color: #000;
+}
+
+.dark-mode .cart {
+  background-color: #2a2a2a;
+  border: 2px solid #444;
+  color: #fff;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.cart li {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.light-mode .cart li {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+}
+
+.dark-mode .cart li {
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+/* Product List Grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+max-width: 1100px;
+  margin: 1rem auto;
+
+  justify-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root > div {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .product-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+
+  .cart {
+    max-width: 100%;
+    margin: 20px 0;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  #root > div {
+    padding: 0.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  h1 {
+    font-size: 1.8em;
+  }
 
-.read-the-docs {
-  color: #888;
-}
+  button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  select {
+    font-size: 12px;
+  }
+} 
