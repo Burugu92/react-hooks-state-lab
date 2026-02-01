@@ -10,7 +10,7 @@ const Cart = ({ cartItems, darkMode }) => {
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              {item.name} is in your cart. (Quantity: {item.quantity})
+              {item.name} is in your cart
             </li>
           ))}
         </ul>
